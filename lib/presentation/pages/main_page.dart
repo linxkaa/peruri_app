@@ -39,6 +39,13 @@ class MainPage extends StatelessWidget {
               ),
               ActionText(
                 onTap: () {
+                  AutoRouter.of(context).push(const NewsRoute());
+                },
+                title: 'News App',
+                desc: 'API Calling menggunakan free source dari NYTimes',
+              ),
+              ActionText(
+                onTap: () {
                   AutoRouter.of(context).push(const AARIntegrationRoute());
                 },
                 title: 'Implementasi Native Android di Flutter',

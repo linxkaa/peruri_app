@@ -22,9 +22,9 @@ abstract class RegisterModule {
   Dio dio(Env env) {
     Dio _dio = Dio();
     BaseOptions options = BaseOptions(
-      connectTimeout: 12,
-      receiveTimeout: 6,
-      sendTimeout: 6,
+      connectTimeout: const Duration(seconds: 12),
+      receiveTimeout: const Duration(seconds: 6),
+      sendTimeout: const Duration(seconds: 6),
       headers: null,
       baseUrl: env.baseUrl,
     );
