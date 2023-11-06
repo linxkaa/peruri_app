@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:peruri_app/core/commons/constans.dart';
 import 'package:peruri_app/presentation/pages/dummy_ui/widgets/dummy_ui_container_card.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 import 'package:peruri_app/presentation/widgets/organism/news_card.dart';
 import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
 
@@ -26,7 +27,7 @@ class _DummyUIPartTwoPageState extends State<DummyUIPartTwoPage> with SingleTick
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: PlatformAppBar(
         title: const Text('Dummy UI'),
         leading: IconButton(
           onPressed: () {

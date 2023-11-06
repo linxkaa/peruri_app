@@ -6,6 +6,7 @@ import 'package:peruri_app/application/input_validation_cubit/input_validation_c
 import 'package:peruri_app/core/commons/assets_path.dart';
 import 'package:peruri_app/core/commons/colors_const.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 import 'package:peruri_app/presentation/widgets/organism/text_form_field.dart';
 import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
 
@@ -20,7 +21,7 @@ class InputValidationPage extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(
+            appBar: PlatformAppBar(
               title: const Text('Input Validation'),
               leading: IconButton(
                 onPressed: () {

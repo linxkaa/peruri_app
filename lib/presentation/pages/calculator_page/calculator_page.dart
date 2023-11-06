@@ -6,6 +6,7 @@ import 'package:peruri_app/core/commons/colors_const.dart';
 import 'package:peruri_app/domain/calculator/calculator_entity.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
 import 'package:peruri_app/presentation/widgets/molecules/chip.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 import 'package:peruri_app/presentation/widgets/organism/text_form_field.dart';
 import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
 
@@ -39,7 +40,7 @@ class CalculatorPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                appBar: AppBar(
+                appBar: PlatformAppBar(
                   title: const Text('Simple Calculator'),
                   leading: IconButton(
                     onPressed: () {

@@ -5,6 +5,7 @@ import 'package:peruri_app/application/top_stories_cubit/top_stories_cubit.dart'
 import 'package:peruri_app/core/commons/colors_const.dart';
 import 'package:peruri_app/core/injection/injection.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 import 'package:peruri_app/presentation/widgets/organism/news_card.dart';
 import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
 
@@ -23,7 +24,7 @@ class TopStoriesPage extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(
+            appBar: PlatformAppBar(
               elevation: 0,
               title: const Text('Top Stories'),
               leading: IconButton(

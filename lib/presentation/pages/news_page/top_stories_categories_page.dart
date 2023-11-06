@@ -5,6 +5,7 @@ import 'package:peruri_app/core/commons/constans.dart';
 import 'package:peruri_app/core/routes/app_router.gr.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
 import 'package:peruri_app/presentation/widgets/molecules/chip.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
 
 @RoutePage()
@@ -14,7 +15,7 @@ class TopStoriesCategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: PlatformAppBar(
         elevation: 0,
         title: const Text('Top Stories'),
         leading: IconButton(

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:peruri_app/presentation/pages/aar_page/aar.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 
 @RoutePage()
 class AARIntegrationPage extends StatefulWidget {
@@ -43,8 +44,8 @@ class _AARIntegrationPageState extends State<AARIntegrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Native Integration'),
+      appBar: const PlatformAppBar(
+        title: Text('Native Integration'),
       ),
       body: Center(
         child: Text('Running on: $_platformVersion\n'),

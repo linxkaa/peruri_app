@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:peruri_app/application/counter_cubit/counter_cubit.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 
 class CounterView extends StatelessWidget {
   static const fabIncrement = Key('fab-increment');
@@ -13,7 +14,7 @@ class CounterView extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(
+      appBar: PlatformAppBar(
         title: const Text('Counter App'),
         leading: IconButton(
           onPressed: () {

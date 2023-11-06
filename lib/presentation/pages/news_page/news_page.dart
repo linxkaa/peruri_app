@@ -7,6 +7,7 @@ import 'package:peruri_app/core/injection/injection.dart';
 import 'package:peruri_app/core/routes/app_router.gr.dart';
 import 'package:peruri_app/presentation/pages/news_page/widgets/headline_text.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 import 'package:peruri_app/presentation/widgets/organism/news_card.dart';
 import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
 
@@ -21,10 +22,9 @@ class NewsPage extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            appBar: AppBar(
+            appBar: const PlatformAppBar(
               elevation: 0,
-              title: const Text('News App'),
-              titleSpacing: UIHelper.setSp(20),
+              title: Text('News App'),
             ),
             body: SingleChildScrollView(
               padding: UIHelper.padding(vertical: 10, horizontal: 20),

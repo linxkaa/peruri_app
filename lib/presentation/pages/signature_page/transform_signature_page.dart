@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_box_transform/flutter_box_transform.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:peruri_app/core/routes/app_router.gr.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 
 @RoutePage()
 class TransformSignaturePage extends StatefulWidget {
@@ -37,8 +38,8 @@ class _TransformSignaturePageState extends State<TransformSignaturePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
+      appBar: const PlatformAppBar(
+        title: Text(
           'Transform Signature Box',
         ),
       ),
