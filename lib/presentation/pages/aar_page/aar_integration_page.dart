@@ -44,7 +44,7 @@ class _AARIntegrationPageState extends State<AARIntegrationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AAR Integration'),
+        title: const Text('Native Integration'),
       ),
       body: Center(
         child: Text('Running on: $_platformVersion\n'),
