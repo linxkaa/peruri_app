@@ -28,14 +28,21 @@ class MainPage extends StatelessWidget {
                   AutoRouter.of(context).push(const CounterRoute());
                 },
                 title: 'Counter Example (State Management)',
-                desc: 'Pengenalan state management menggunakan flutter_bloc package',
+                desc: 'Pengenalan state management menggunakan flutter_bloc package. Level: 1',
+              ),
+              ActionText(
+                onTap: () {
+                  AutoRouter.of(context).push(const InputValidationRoute());
+                },
+                title: 'Input Validation Example (State Management)',
+                desc: 'Pengenalan state management menggunakan flutter_bloc package. Level: 2',
               ),
               ActionText(
                 onTap: () {
                   AutoRouter.of(context).push(const CalculatorRoute());
                 },
                 title: 'Calculator Example (State Management)',
-                desc: 'Case state management menggunakan flutter_bloc package yang lebih complex',
+                desc: 'Case state management menggunakan flutter_bloc package yang lebih complex. Level: 3',
               ),
               ActionText(
                 onTap: () {
