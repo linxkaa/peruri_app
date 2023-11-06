@@ -4,10 +4,10 @@ import 'package:peruri_app/infrastructure/common/dtos/article_model.dart';
 import 'package:peruri_app/infrastructure/core/api_helper.dart';
 
 @injectable
-class HomeDataSource {
+class NewsDataSource {
   final ApiHelper _helper;
 
-  HomeDataSource(this._helper);
+  NewsDataSource(this._helper);
 
   Future<List<ArticleModel>> getTopStories(String section) async {
     final response = await _helper.get(path: ApiPathConstant.topStories(section));

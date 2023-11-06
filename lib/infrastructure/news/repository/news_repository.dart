@@ -1,15 +1,15 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 import 'package:peruri_app/domain/core/app_failure.dart';
-import 'package:peruri_app/domain/news/home/i_home_repository.dart';
+import 'package:peruri_app/domain/news/i_news_repository.dart';
 import 'package:peruri_app/infrastructure/common/dtos/article_model.dart';
-import 'package:peruri_app/infrastructure/news/data_source/home_data_source.dart';
+import 'package:peruri_app/infrastructure/news/data_source/news_data_source.dart';
 
-@LazySingleton(as: IHomeRepository)
-class HomeRepository implements IHomeRepository {
-  final HomeDataSource _dataSource;
+@LazySingleton(as: INewsRepository)
+class NewsRepository implements INewsRepository {
+  final NewsDataSource _dataSource;
 
-  HomeRepository(this._dataSource);
+  NewsRepository(this._dataSource);
 
   @override
   Future<Either<AppFailure, List<ArticleModel>>> getTopStories(String section) async {

@@ -13,25 +13,25 @@ import 'package:flutter/material.dart' as _i15;
 import 'package:peruri_app/infrastructure/common/dtos/article_model.dart'
     as _i16;
 import 'package:peruri_app/presentation/pages/aar_page/aar_integration_page.dart'
-    as _i12;
-import 'package:peruri_app/presentation/pages/calculator/calculator_page.dart'
-    as _i4;
-import 'package:peruri_app/presentation/pages/counter_page/counter_page.dart'
     as _i11;
-import 'package:peruri_app/presentation/pages/dummy_ui/dummy_ui_part_one_page.dart'
-    as _i5;
-import 'package:peruri_app/presentation/pages/dummy_ui/dummy_ui_part_two_page.dart'
-    as _i6;
-import 'package:peruri_app/presentation/pages/input_validation_page/input_validation_page.dart'
+import 'package:peruri_app/presentation/pages/calculator_page/calculator_page.dart'
     as _i13;
+import 'package:peruri_app/presentation/pages/counter_page/counter_page.dart'
+    as _i10;
+import 'package:peruri_app/presentation/pages/dummy_ui/dummy_ui_part_one_page.dart'
+    as _i4;
+import 'package:peruri_app/presentation/pages/dummy_ui/dummy_ui_part_two_page.dart'
+    as _i5;
+import 'package:peruri_app/presentation/pages/input_validation_page/input_validation_page.dart'
+    as _i12;
 import 'package:peruri_app/presentation/pages/main_page.dart' as _i1;
 import 'package:peruri_app/presentation/pages/news_page/most_popular_page.dart'
-    as _i9;
-import 'package:peruri_app/presentation/pages/news_page/news_page.dart' as _i8;
+    as _i8;
+import 'package:peruri_app/presentation/pages/news_page/news_page.dart' as _i7;
 import 'package:peruri_app/presentation/pages/news_page/top_stories_categories_page.dart'
-    as _i10;
+    as _i9;
 import 'package:peruri_app/presentation/pages/news_page/top_stories_page.dart'
-    as _i7;
+    as _i6;
 import 'package:peruri_app/presentation/pages/signature_page/signature_page.dart'
     as _i3;
 import 'package:peruri_app/presentation/pages/signature_page/transform_signature_page.dart'
@@ -60,29 +60,23 @@ abstract class $AppRouter extends _i14.RootStackRouter {
         child: const _i3.SignaturePage(),
       );
     },
-    CalculatorRoute.name: (routeData) {
-      return _i14.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i4.CalculatorPage(),
-      );
-    },
     DummyUIPartOneRoute.name: (routeData) {
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.DummyUIPartOnePage(),
+        child: const _i4.DummyUIPartOnePage(),
       );
     },
     DummyUIPartTwoRoute.name: (routeData) {
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.DummyUIPartTwoPage(),
+        child: const _i5.DummyUIPartTwoPage(),
       );
     },
     TopStoriesRoute.name: (routeData) {
       final args = routeData.argsAs<TopStoriesRouteArgs>();
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i7.TopStoriesPage(
+        child: _i6.TopStoriesPage(
           key: args.key,
           section: args.section,
         ),
@@ -91,14 +85,14 @@ abstract class $AppRouter extends _i14.RootStackRouter {
     NewsRoute.name: (routeData) {
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.NewsPage(),
+        child: const _i7.NewsPage(),
       );
     },
     MostPopularRoute.name: (routeData) {
       final args = routeData.argsAs<MostPopularRouteArgs>();
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i9.MostPopularPage(
+        child: _i8.MostPopularPage(
           key: args.key,
           listArticles: args.listArticles,
         ),
@@ -107,25 +101,31 @@ abstract class $AppRouter extends _i14.RootStackRouter {
     TopStoriesCategoriesRoute.name: (routeData) {
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i10.TopStoriesCategoriesPage(),
+        child: const _i9.TopStoriesCategoriesPage(),
       );
     },
     CounterRoute.name: (routeData) {
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i11.CounterPage(),
+        child: const _i10.CounterPage(),
       );
     },
     AARIntegrationRoute.name: (routeData) {
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i12.AARIntegrationPage(),
+        child: const _i11.AARIntegrationPage(),
       );
     },
     InputValidationRoute.name: (routeData) {
       return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i13.InputValidationPage(),
+        child: const _i12.InputValidationPage(),
+      );
+    },
+    CalculatorRoute.name: (routeData) {
+      return _i14.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i13.CalculatorPage(),
       );
     },
   };
@@ -174,21 +174,7 @@ class SignatureRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.CalculatorPage]
-class CalculatorRoute extends _i14.PageRouteInfo<void> {
-  const CalculatorRoute({List<_i14.PageRouteInfo>? children})
-      : super(
-          CalculatorRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CalculatorRoute';
-
-  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i5.DummyUIPartOnePage]
+/// [_i4.DummyUIPartOnePage]
 class DummyUIPartOneRoute extends _i14.PageRouteInfo<void> {
   const DummyUIPartOneRoute({List<_i14.PageRouteInfo>? children})
       : super(
@@ -202,7 +188,7 @@ class DummyUIPartOneRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.DummyUIPartTwoPage]
+/// [_i5.DummyUIPartTwoPage]
 class DummyUIPartTwoRoute extends _i14.PageRouteInfo<void> {
   const DummyUIPartTwoRoute({List<_i14.PageRouteInfo>? children})
       : super(
@@ -216,7 +202,7 @@ class DummyUIPartTwoRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.TopStoriesPage]
+/// [_i6.TopStoriesPage]
 class TopStoriesRoute extends _i14.PageRouteInfo<TopStoriesRouteArgs> {
   TopStoriesRoute({
     _i15.Key? key,
@@ -254,7 +240,7 @@ class TopStoriesRouteArgs {
 }
 
 /// generated route for
-/// [_i8.NewsPage]
+/// [_i7.NewsPage]
 class NewsRoute extends _i14.PageRouteInfo<void> {
   const NewsRoute({List<_i14.PageRouteInfo>? children})
       : super(
@@ -268,7 +254,7 @@ class NewsRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.MostPopularPage]
+/// [_i8.MostPopularPage]
 class MostPopularRoute extends _i14.PageRouteInfo<MostPopularRouteArgs> {
   MostPopularRoute({
     _i15.Key? key,
@@ -306,7 +292,7 @@ class MostPopularRouteArgs {
 }
 
 /// generated route for
-/// [_i10.TopStoriesCategoriesPage]
+/// [_i9.TopStoriesCategoriesPage]
 class TopStoriesCategoriesRoute extends _i14.PageRouteInfo<void> {
   const TopStoriesCategoriesRoute({List<_i14.PageRouteInfo>? children})
       : super(
@@ -320,7 +306,7 @@ class TopStoriesCategoriesRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.CounterPage]
+/// [_i10.CounterPage]
 class CounterRoute extends _i14.PageRouteInfo<void> {
   const CounterRoute({List<_i14.PageRouteInfo>? children})
       : super(
@@ -334,7 +320,7 @@ class CounterRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i12.AARIntegrationPage]
+/// [_i11.AARIntegrationPage]
 class AARIntegrationRoute extends _i14.PageRouteInfo<void> {
   const AARIntegrationRoute({List<_i14.PageRouteInfo>? children})
       : super(
@@ -348,7 +334,7 @@ class AARIntegrationRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i13.InputValidationPage]
+/// [_i12.InputValidationPage]
 class InputValidationRoute extends _i14.PageRouteInfo<void> {
   const InputValidationRoute({List<_i14.PageRouteInfo>? children})
       : super(
@@ -357,6 +343,20 @@ class InputValidationRoute extends _i14.PageRouteInfo<void> {
         );
 
   static const String name = 'InputValidationRoute';
+
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i13.CalculatorPage]
+class CalculatorRoute extends _i14.PageRouteInfo<void> {
+  const CalculatorRoute({List<_i14.PageRouteInfo>? children})
+      : super(
+          CalculatorRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CalculatorRoute';
 
   static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }

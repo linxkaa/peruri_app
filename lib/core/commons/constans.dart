@@ -15,9 +15,4 @@ class Constants {
     'home',
     'business',
   ];
-  static List<String> articleSortType = [
-    'newest',
-    'oldest',
-    'relevance',
-  ];
 }
