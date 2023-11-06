@@ -1,0 +1,72 @@
+name: peruri_app
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.18.2 <3.0.0"
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: 4.0.6
+  hydrated_bloc: ^9.1.2
+  flutter_bloc: ^8.1.3
+  logger: ^1.3.0
+  bloc: ^8.1.1
+  fpdart: ^0.6.0
+  freezed_annotation: ^2.2.0
+  fluttertoast: ^8.2.1
+  json_annotation: ^4.8.1
+  injectable: ^2.1.1
+  get_it: ^7.6.0
+  auto_route: 7.1.0
+  flutter_screenutil: 5.0.0
+  shimmer: ^2.0.0
+  google_fonts: ^4.0.4
+  flutter_svg: ^2.0.5
+  path_provider: ^2.0.15
+  rxdart: ^0.27.7
+  cupertino_icons: ^1.0.2
+  bloc_test: ^9.1.4
+  mocktail: ^1.0.0
+  signature: ^5.4.0
+  flutter_box_transform: ^0.2.1
+  image_gallery_saver: ^1.6.9
+  image_picker: ^1.0.4
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.3.3
+  injectable_generator: ^2.1.5
+  auto_route_generator: ^7.0.0
+  freezed: ^2.3.4
+  json_serializable: ^6.6.2
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/imgs/
+    - assets/svgs/
