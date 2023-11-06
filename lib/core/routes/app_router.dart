@@ -11,5 +11,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: TransformSignatureRoute.page),
     AutoRoute(page: DummyUIPartOneRoute.page),
     AutoRoute(page: DummyUIPartTwoRoute.page),
+    AutoRoute(page: CounterRoute.page),
+    AutoRoute(page: CalculatorRoute.page),
   ];
 }

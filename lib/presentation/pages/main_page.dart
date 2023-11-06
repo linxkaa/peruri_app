@@ -25,6 +25,20 @@ class MainPage extends StatelessWidget {
               ),
               ActionText(
                 onTap: () {
+                  AutoRouter.of(context).push(const CounterRoute());
+                },
+                title: 'Counter Example (State Management)',
+                desc: 'Pengenalan state management menggunakan flutter_bloc package',
+              ),
+              ActionText(
+                onTap: () {
+                  AutoRouter.of(context).push(const CalculatorRoute());
+                },
+                title: 'Calculator Example (State Management)',
+                desc: 'Case state management menggunakan flutter_bloc package yang lebih complex',
+              ),
+              ActionText(
+                onTap: () {
                   AutoRouter.of(context).push(const AARIntegrationRoute());
                 },
                 title: 'Implementasi Native Android di Flutter',
