@@ -9,5 +9,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(page: AARIntegrationRoute.page),
     AutoRoute(page: SignatureRoute.page),
     AutoRoute(page: TransformSignatureRoute.page),
+    AutoRoute(page: DummyUIPartOneRoute.page),
+    AutoRoute(page: DummyUIPartTwoRoute.page),
   ];
 }

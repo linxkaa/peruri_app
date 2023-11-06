@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:peruri_app/core/routes/app_router.gr.dart';
-import 'package:peruri_app/presentation/widgets/atoms/action_text.dart';
+import 'package:peruri_app/presentation/widgets/molecules/action_text.dart';
 import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
 
 @RoutePage()
@@ -16,6 +16,13 @@ class MainPage extends StatelessWidget {
           padding: UIHelper.padding(all: 20),
           child: Column(
             children: [
+              ActionText(
+                onTap: () {
+                  AutoRouter.of(context).push(const DummyUIPartOneRoute());
+                },
+                title: 'Dummy UI',
+                desc: 'Pengenalan widget dasar di flutter',
+              ),
               ActionText(
                 onTap: () {
                   AutoRouter.of(context).push(const AARIntegrationRoute());
