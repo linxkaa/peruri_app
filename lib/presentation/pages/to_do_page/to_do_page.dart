@@ -64,42 +64,47 @@ class ToDoPage extends StatelessWidget {
                         : Column(
                             children: state.entity.histories
                                 .map(
-                                  (e) => Row(
+                                  (e) => Column(
                                     children: [
-                                      Expanded(
-                                        child: Row(
-                                          children: [
-                                            Text(e.text),
-                                            UIHelper.horizontalSpace(5),
-                                            if (e.id == state.entity.id)
-                                              Text(
-                                                '(edited)',
-                                                style: context.textTheme.labelSmall?.copyWith(
-                                                  color: ColorConstant.grey,
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                              ),
-                                          ],
-                                        ),
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                            child: Row(
+                                              children: [
+                                                Expanded(child: Text(e.text)),
+                                                UIHelper.horizontalSpace(5),
+                                                if (e.id == state.entity.id)
+                                                  Text(
+                                                    '(edited)',
+                                                    style: context.textTheme.labelSmall?.copyWith(
+                                                      color: ColorConstant.grey,
+                                                      fontStyle: FontStyle.italic,
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                          IconButton(
+                                            onPressed: () async {
+                                              context.read<ToDoCubit>().restoreHistory(e.id);
+                                            },
+                                            icon: const Icon(
+                                              Icons.edit,
+                                              color: ColorConstant.primary,
+                                            ),
+                                          ),
+                                          IconButton(
+                                            onPressed: () {
+                                              context.read<ToDoCubit>().removeHistory(e.id);
+                                            },
+                                            icon: const Icon(
+                                              Icons.delete,
+                                              color: ColorConstant.primary,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      IconButton(
-                                        onPressed: () async {
-                                          context.read<ToDoCubit>().restoreHistory(e.id);
-                                        },
-                                        icon: const Icon(
-                                          Icons.edit,
-                                          color: ColorConstant.primary,
-                                        ),
-                                      ),
-                                      IconButton(
-                                        onPressed: () {
-                                          context.read<ToDoCubit>().removeHistory(e.id);
-                                        },
-                                        icon: const Icon(
-                                          Icons.delete,
-                                          color: ColorConstant.primary,
-                                        ),
-                                      ),
+                                      const Divider(),
                                     ],
                                   ),
                                 )
