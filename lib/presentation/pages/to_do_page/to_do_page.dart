@@ -42,6 +42,7 @@ class ToDoPage extends StatelessWidget {
                       maxLines: 3,
                       title: 'To Do',
                       controller: context.read<ToDoCubit>().textController,
+                      hintText: 'Masukkan todo task kamu..',
                       validator: (_) => state.showTextError,
                     ),
                     UIHelper.verticalSpace(10),
