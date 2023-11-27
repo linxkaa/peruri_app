@@ -11,7 +11,6 @@ abstract class AarPlatform extends PlatformInterface {
   static AarPlatform _instance = MethodChannelAar();
 
   /// The default instance of [AarPlatform] to use.
-  ///
   /// Defaults to [MethodChannelAar].
   static AarPlatform get instance => _instance;
 

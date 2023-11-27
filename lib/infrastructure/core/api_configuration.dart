@@ -6,8 +6,6 @@ class ApiConfiguration {
   const ApiConfiguration._();
 
   static Future<ApiResponseModel> handleApiResponse(Response response) async {
-    print('RESPONSE.DATA: ${response.data}');
-
     if (!ApiResponseModel.isFormatValid(response.data)) {
       return Future.error(ApiResponseNotValidException());
     }

@@ -61,23 +61,28 @@ class TopStoriesPage extends StatelessWidget {
                       return state.failureOrSucceed.fold(
                         () => state.isLoading ? UIHelper.loading() : const SizedBox.shrink(),
                         (response) => response.fold(
-                            (failure) => failure.when(
-                                  fromServerSide: (val) => Text(val),
-                                ),
-                            (data) => Column(
-                                    children: List.generate(data.length.clamp(0, 3), (index) {
-                                  final _data = data[index];
-                                  return Padding(
-                                    padding: UIHelper.padding(bottom: 10),
-                                    child: NewsCard(
-                                      imgSrc: _data.multimediaConverted,
-                                      title: _data.title,
-                                      desc: '${_data.byline} \u2022 ${_data.publishedDateConverted}',
-                                      onFavoriteTap: () {},
-                                      isFavorited: false,
-                                    ),
-                                  );
-                                }))),
+                          (failure) => failure.when(
+                            fromServerSide: (val) => Text(val),
+                          ),
+                          (data) => Column(
+                            children: List.generate(
+                              data.length.clamp(0, 3),
+                              (index) {
+                                final _data = data[index];
+                                return Padding(
+                                  padding: UIHelper.padding(bottom: 10),
+                                  child: NewsCard(
+                                    imgSrc: _data.multimediaConverted,
+                                    title: _data.title,
+                                    desc: '${_data.byline} \u2022 ${_data.publishedDateConverted}',
+                                    onFavoriteTap: () {},
+                                    isFavorited: false,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
                       );
                     },
                   ),

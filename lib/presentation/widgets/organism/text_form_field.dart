@@ -12,8 +12,11 @@ class TextFormFieldCustom extends StatelessWidget {
   final String? hintText;
   final TextAlign? textAlign;
   final String? Function(String?)? validator;
+  final void Function(String?)? onChange;
   final String? title;
   final Widget? preffixIcon;
+  final int? maxLines;
+  final String? initialValue;
 
   const TextFormFieldCustom({
     Key? key,
@@ -25,6 +28,9 @@ class TextFormFieldCustom extends StatelessWidget {
     this.validator,
     this.title,
     this.preffixIcon,
+    this.maxLines,
+    this.onChange,
+    this.initialValue,
   }) : super(key: key);
 
   @override
@@ -37,6 +43,8 @@ class TextFormFieldCustom extends StatelessWidget {
             title: title,
           ),
         TextFormField(
+          initialValue: initialValue,
+          maxLines: maxLines,
           textAlignVertical: TextAlignVertical.center,
           keyboardType: keyboardType,
           textAlign: textAlign ?? TextAlign.left,
@@ -44,6 +52,7 @@ class TextFormFieldCustom extends StatelessWidget {
           autovalidateMode: AutovalidateMode.always,
           style: style ?? context.textTheme.bodyLarge,
           validator: validator,
+          onChanged: onChange,
           decoration: InputDecoration(
             prefixIconColor: ColorConstant.primary,
             prefixIcon: preffixIcon,

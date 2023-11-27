@@ -25,10 +25,7 @@ dependencies:
   google_fonts: ^4.0.4
   flutter_svg: ^2.0.5
   path_provider: ^2.0.15
-  rxdart: ^0.27.7
   cupertino_icons: ^1.0.2
-  bloc_test: ^9.1.4
-  mocktail: ^1.0.0
   signature: ^5.4.0
   flutter_box_transform: ^0.2.1
   image_gallery_saver: ^1.6.9

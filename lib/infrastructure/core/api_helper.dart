@@ -35,7 +35,7 @@ class ApiHelper {
       return ApiConfiguration.handleApiResponse(response);
     } on SocketException {
       return Future.error(NoInternetException());
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       return ApiConfiguration.handleDioErrorResponse(e);
     } catch (e) {
       return Future.error(UnknownException(e));

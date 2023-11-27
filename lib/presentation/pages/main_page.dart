@@ -66,6 +66,13 @@ class MainPage extends StatelessWidget {
                 desc:
                     'Implementasi tanda tangan yang akan di save ke local storage, lalu digunakan ke transform box yang bisa digerakan dimanapun di page.',
               ),
+              ActionText(
+                onTap: () {
+                  AutoRouter.of(context).push(const ToDoRoute());
+                },
+                title: 'To Do App',
+                desc: 'Membuat to do list untuk latihan state management flutter_bloc',
+              ),
             ],
           ),
         ),

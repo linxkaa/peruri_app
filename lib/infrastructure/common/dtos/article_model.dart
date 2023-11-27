@@ -23,14 +23,6 @@ class ArticleModel with _$ArticleModel {
         publishedDate: json['published_date'],
       );
 
-  factory ArticleModel.fromExplore(Map<String, dynamic> json) => ArticleModel(
-        id: json['uri'],
-        title: json['abstract'],
-        byline: json['byline']['original'] ?? 'By Unknown',
-        multimedia: (json['multimedia'] as List).isEmpty ? [] : [json['multimedia'][0]['url']],
-        publishedDate: json['pub_date'],
-      );
-
   String get publishedDateConverted {
     if (publishedDate.contains('T')) {
       return publishedDate.split('T')[0];
