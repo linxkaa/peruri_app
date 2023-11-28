@@ -72,6 +72,7 @@ class MainPage extends StatelessWidget {
                 },
                 title: 'To Do App',
                 desc: 'Membuat to do list untuk latihan state management flutter_bloc',
+                needDivider: false,
               ),
             ],
           ),

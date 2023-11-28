@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:peruri_app/application/to_do_cubit/to_do_cubit.dart';
 import 'package:peruri_app/core/commons/colors_const.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
+import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
 import 'package:peruri_app/presentation/widgets/organisms/text_form_field.dart';
 import 'package:peruri_app/presentation/widgets/organisms/ui_helper.dart';
 
@@ -19,8 +20,8 @@ class ToDoPage extends StatelessWidget {
         return BlocBuilder<ToDoCubit, ToDoState>(
           builder: (context, state) {
             return Scaffold(
-              appBar: AppBar(
-                title: const Text('To Do Page'),
+              appBar: const PlatformAppBar(
+                title: Text('To Do Page'),
               ),
               bottomNavigationBar: Container(
                 margin: UIHelper.padding(horizontal: 10, vertical: 20),
