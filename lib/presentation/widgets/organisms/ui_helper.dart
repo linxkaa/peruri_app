@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:peruri_app/core/commons/colors_const.dart';
-import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
 
 class UIHelper {
   UIHelper._();
@@ -78,26 +77,6 @@ class UIHelper {
     );
   }
 
-  static Widget emptyCaseWidget(BuildContext context, {required String emptyText, double? height}) {
-    return Container(
-      padding: UIHelper.padding(vertical: 50, horizontal: 30),
-      height: height,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text(
-              emptyText,
-              textAlign: TextAlign.center,
-              style: context.textTheme.bodyMedium,
-            ),
-            UIHelper.verticalSpace(40),
-          ],
-        ),
-      ),
-    );
-  }
-
   static double setFont(double font) {
     return ScreenUtil().setSp(font);
   }
@@ -118,24 +97,6 @@ class UIHelper {
     return SizedBox(width: setWidth(width));
   }
 
-  static List<BoxShadow> defaultBoxShadow = [
-    const BoxShadow(
-      color: Color(0xffE3E3E3),
-      spreadRadius: 2,
-      blurRadius: 10,
-      offset: Offset(0, 2), // changes position of shadow
-    )
-  ];
-
-  static List<BoxShadow> thinnerBoxShadow = [
-    BoxShadow(
-      color: ColorConstant.grey.withOpacity(0.2),
-      spreadRadius: 2,
-      blurRadius: 8,
-      offset: const Offset(2, 2), // changes position of shadow
-    )
-  ];
-
   static Widget divider({Color? color, double? thickness, double? height}) {
     return Divider(
       color: color,
@@ -155,57 +116,5 @@ class UIHelper {
         backgroundColor: isSuccess ? Colors.green : Colors.red,
         textColor: Colors.white,
         fontSize: UIHelper.setFont(14));
-  }
-}
-
-class EmptyTemplate extends StatelessWidget {
-  final bool isInitialState;
-  final String emptyText;
-  const EmptyTemplate({
-    Key? key,
-    this.isInitialState = false,
-    required this.emptyText,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return isInitialState
-        ? Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: UIHelper.padding(vertical: 500, horizontal: 200),
-              child: Column(
-                children: [
-                  Icon(
-                    Icons.screen_search_desktop_outlined,
-                    color: ColorConstant.primary,
-                    size: UIHelper.setFont(200),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          emptyText,
-                          textAlign: TextAlign.center,
-                          style: context.textTheme.bodyMedium!.copyWith(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          )
-        : Align(
-            alignment: Alignment.center,
-            child: Container(
-              padding: UIHelper.padding(vertical: 40),
-              child: Text(
-                emptyText,
-                textAlign: TextAlign.center,
-                style: context.textTheme.bodySmall!.copyWith(),
-              ),
-            ),
-          );
   }
 }

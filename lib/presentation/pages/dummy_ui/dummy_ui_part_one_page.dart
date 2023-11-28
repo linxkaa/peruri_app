@@ -9,9 +9,9 @@ import 'package:peruri_app/presentation/pages/dummy_ui/widgets/dummy_ui_containe
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
 import 'package:peruri_app/presentation/widgets/molecules/action_text.dart';
 import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
-import 'package:peruri_app/presentation/widgets/organism/news_card.dart';
-import 'package:peruri_app/presentation/widgets/organism/text_form_field.dart';
-import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
+import 'package:peruri_app/presentation/widgets/organisms/news_card.dart';
+import 'package:peruri_app/presentation/widgets/organisms/text_form_field.dart';
+import 'package:peruri_app/presentation/widgets/organisms/ui_helper.dart';
 
 @RoutePage()
 class DummyUIPartOnePage extends StatelessWidget {

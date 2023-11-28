@@ -8,8 +8,8 @@ import 'package:peruri_app/core/routes/app_router.gr.dart';
 import 'package:peruri_app/presentation/pages/news_page/widgets/headline_text.dart';
 import 'package:peruri_app/presentation/widgets/atoms/text_theme_extension.dart';
 import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
-import 'package:peruri_app/presentation/widgets/organism/news_card.dart';
-import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
+import 'package:peruri_app/presentation/widgets/organisms/news_card.dart';
+import 'package:peruri_app/presentation/widgets/organisms/ui_helper.dart';
 
 @RoutePage()
 class NewsPage extends StatelessWidget {

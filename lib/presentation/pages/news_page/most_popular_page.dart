@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:peruri_app/infrastructure/common/dtos/article_model.dart';
 import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
-import 'package:peruri_app/presentation/widgets/organism/news_card.dart';
-import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
+import 'package:peruri_app/presentation/widgets/organisms/news_card.dart';
+import 'package:peruri_app/presentation/widgets/organisms/ui_helper.dart';
 
 @RoutePage()
 class MostPopularPage extends StatelessWidget {

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:peruri_app/core/commons/colors_const.dart';
 import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
-import 'package:peruri_app/presentation/widgets/organism/ui_helper.dart';
+import 'package:peruri_app/presentation/widgets/organisms/ui_helper.dart';
 import 'package:signature/signature.dart';
 
 @RoutePage()
