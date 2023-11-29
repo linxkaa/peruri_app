@@ -38,8 +38,7 @@ class CalculatorCubit extends Cubit<CalculatorState> {
 
   void addValue() {
     if (state.model.failureOption.isNone()) {
-      final value = double.parse(leftController.text) + double.parse(rightController.text);
-      saveToHistories(value);
+      saveToHistories(state.model.addMethod);
     } else {
       emit(state.unmodified.copyWith(showError: true));
     }
@@ -96,11 +95,10 @@ class CalculatorCubit extends Cubit<CalculatorState> {
 
   void saveToHistories(double value) {
     emit(
-      state.unmodified.copyWith.model(
-        histories: state.model.newHistories,
-        value: value,
-        isPressed: true,
-      ),
+      state.unmodified.copyWith(isPressed: true).copyWith.model(
+            histories: state.model.newHistories,
+            value: value,
+          ),
     );
   }
 }

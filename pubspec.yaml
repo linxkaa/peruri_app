@@ -1,6 +1,6 @@
 name: peruri_app
 description: A new Flutter project.
-publish_to: 'none' 
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -30,7 +30,7 @@ dependencies:
   flutter_box_transform: ^0.2.1
   image_gallery_saver: ^1.6.9
   image_picker: ^1.0.4
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,5 +44,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/imgs/
     - assets/svgs/

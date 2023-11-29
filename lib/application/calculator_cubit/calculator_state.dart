@@ -5,19 +5,19 @@ class CalculatorState with _$CalculatorState {
   const factory CalculatorState({
     required CalculatorEntity model,
     required bool showError,
+    required bool isPressed,
   }) = _CalculatorState;
 
   const CalculatorState._();
 
   factory CalculatorState.empty() => CalculatorState(
+        isPressed: false,
         model: CalculatorEntity.empty(),
         showError: false,
       );
 
   CalculatorState get unmodified => copyWith(
-        model: model.copyWith(
-          isPressed: false,
-        ),
+        isPressed: false,
       );
 
   bool choosenType(CalculatorType type) {
@@ -26,7 +26,7 @@ class CalculatorState with _$CalculatorState {
 
   bool get typeNotChoosen => model.type == const CalculatorType.none();
 
-  String get displayValue => !model.isPressed ? '...' : model.convertValue;
+  String get displayValue => !isPressed ? '...' : model.convertValue;
 
   String? get showErrorMsg {
     if (!showError) return null;

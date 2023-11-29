@@ -15,11 +15,9 @@ class CalculatorEntity with _$CalculatorEntity {
     required String rightForm,
     required CalculatorType type,
     required List<HistoryEntity> histories,
-    required bool isPressed,
   }) = _CalculatorEntity;
 
   factory CalculatorEntity.empty() => const CalculatorEntity(
-        isPressed: false,
         value: 0,
         leftForm: "",
         rightForm: "",
@@ -91,6 +89,10 @@ class CalculatorEntity with _$CalculatorEntity {
     final newHistories = [...histories, calculationHistory];
 
     return newHistories;
+  }
+
+  double get addMethod {
+    return double.parse(leftForm) + double.parse(rightForm);
   }
 }
 

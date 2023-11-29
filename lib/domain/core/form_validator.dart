@@ -24,4 +24,11 @@ class FormValidator {
     }
     return right(unit);
   }
+
+  static Either<FormFailure, Unit> customValidator({required bool validator, String? errorMsg}) {
+    if (validator) {
+      return left(const FormFailure.costumError());
+    }
+    return right(unit);
+  }
 }

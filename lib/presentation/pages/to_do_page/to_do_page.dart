@@ -34,7 +34,7 @@ class ToDoPage extends StatelessWidget {
                   ),
                 ),
               ),
-              body: SingleChildScrollView(
+              body: Padding(
                 padding: UIHelper.padding(all: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,72 +46,81 @@ class ToDoPage extends StatelessWidget {
                       hintText: 'Masukkan todo task kamu..',
                       validator: (_) => state.showTextError,
                     ),
-                    UIHelper.verticalSpace(10),
-                    UIHelper.verticalSpace(20),
-                    Text(
-                      'HISTORY',
-                      style: context.textTheme.headlineSmall?.copyWith(
-                        color: ColorConstant.green,
-                      ),
-                    ),
-                    UIHelper.verticalSpace(10),
-                    state.entity.histories.isEmpty
-                        ? Text(
-                            'No history found',
-                            style: context.textTheme.bodySmall?.copyWith(
-                              color: ColorConstant.grey,
-                              fontStyle: FontStyle.italic,
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            UIHelper.verticalSpace(10),
+                            UIHelper.verticalSpace(20),
+                            Text(
+                              'HISTORY',
+                              style: context.textTheme.headlineSmall?.copyWith(
+                                color: ColorConstant.green,
+                              ),
                             ),
-                          )
-                        : Column(
-                            children: state.entity.histories
-                                .map(
-                                  (e) => Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Expanded(
-                                            child: Row(
-                                              children: [
-                                                Expanded(child: Text(e.text)),
-                                                UIHelper.horizontalSpace(5),
-                                                if (e.id == state.entity.id)
-                                                  Text(
-                                                    '(edited)',
-                                                    style: context.textTheme.labelSmall?.copyWith(
-                                                      color: ColorConstant.grey,
-                                                      fontStyle: FontStyle.italic,
+                            UIHelper.verticalSpace(10),
+                            state.entity.histories.isEmpty
+                                ? Text(
+                                    'No history found',
+                                    style: context.textTheme.bodySmall?.copyWith(
+                                      color: ColorConstant.grey,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                  )
+                                : Column(
+                                    children: state.entity.histories
+                                        .map(
+                                          (e) => Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Row(
+                                                      children: [
+                                                        Expanded(child: Text(e.text)),
+                                                        UIHelper.horizontalSpace(5),
+                                                        if (e.id == state.entity.id)
+                                                          Text(
+                                                            '(edited)',
+                                                            style: context.textTheme.labelSmall?.copyWith(
+                                                              color: ColorConstant.grey,
+                                                              fontStyle: FontStyle.italic,
+                                                            ),
+                                                          ),
+                                                      ],
                                                     ),
                                                   ),
-                                              ],
-                                            ),
+                                                  IconButton(
+                                                    onPressed: () async {
+                                                      context.read<ToDoCubit>().restoreHistory(e.id);
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons.edit,
+                                                      color: ColorConstant.primary,
+                                                    ),
+                                                  ),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      context.read<ToDoCubit>().removeHistory(e.id);
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons.delete,
+                                                      color: ColorConstant.primary,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              const Divider(),
+                                            ],
                                           ),
-                                          IconButton(
-                                            onPressed: () async {
-                                              context.read<ToDoCubit>().restoreHistory(e.id);
-                                            },
-                                            icon: const Icon(
-                                              Icons.edit,
-                                              color: ColorConstant.primary,
-                                            ),
-                                          ),
-                                          IconButton(
-                                            onPressed: () {
-                                              context.read<ToDoCubit>().removeHistory(e.id);
-                                            },
-                                            icon: const Icon(
-                                              Icons.delete,
-                                              color: ColorConstant.primary,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const Divider(),
-                                    ],
-                                  ),
-                                )
-                                .toList(),
-                          )
+                                        )
+                                        .toList(),
+                                  )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

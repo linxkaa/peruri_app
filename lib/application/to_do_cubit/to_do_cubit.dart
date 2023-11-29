@@ -18,12 +18,13 @@ class ToDoCubit extends HydratedCubit<ToDoState> {
   }
 
   void submit() {
-    if (state.entity.failureOption.isNone()) {
+    if (state.entity.failureOption.isNone() && !state.entity.cannotAddTheSameText) {
       if (state.newToDo) {
         saveToHistories();
       } else {
         updateHistories();
       }
+      textController.clear();
     } else {
       emit(state.unmodified.copyWith(showError: true));
     }
@@ -31,13 +32,9 @@ class ToDoCubit extends HydratedCubit<ToDoState> {
 
   void restoreHistory(int id) {
     final entity = state.entity.restoreHistory(id);
-
     textController.removeListener(onControllerChange);
-
     textController.value = TextEditingValue(text: entity.text);
-
     textController.addListener(onControllerChange);
-
     emit(
       state.unmodified.copyWith.entity(
         text: entity.text,
@@ -65,12 +62,12 @@ class ToDoCubit extends HydratedCubit<ToDoState> {
 
   void updateHistories() {
     emit(
-      state.unmodified.copyWith.entity(
-        histories: state.entity.updateHistory(
-          id: state.entity.id,
-          text: state.entity.text,
-        ),
-      ),
+      state.unmodified.copyWith(showError: false).copyWith.entity(
+            histories: state.entity.updateHistory(
+              id: state.entity.id,
+              text: state.entity.text,
+            ),
+          ),
     );
   }
 

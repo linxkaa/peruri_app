@@ -37,7 +37,8 @@ class InputValidationEntity with _$InputValidationEntity {
 
   String? get emailErrorMsg {
     return FormValidator.emailValidator(email).fold(
-      (failure) => failure.when(
+      (failure) => failure.maybeWhen(
+        orElse: () => null,
         empty: () => "Email must not be empty",
         tooLong: () => "Email is too long",
         invalidEmailAddress: () => "Invalid email address",

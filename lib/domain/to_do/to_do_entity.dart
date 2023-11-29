@@ -23,19 +23,31 @@ class ToDoEntity with _$ToDoEntity {
       );
 
   Option<FormFailure> get failureOption {
-    return FormValidator.emptyValidator(text).fold(
-      (failure) => some(failure),
-      (_) => none(),
-    );
+    return FormValidator.emptyValidator(text)
+        .andThen(() => FormValidator.customValidator(validator: cannotAddTheSameText))
+        .fold(
+          (failure) => some(failure),
+          (_) => none(),
+        );
   }
 
-  String? get textErrorMsg {
+  String? get todoErrorMsg {
     return FormValidator.emptyValidator(text).fold(
       (failure) => failure.maybeWhen(
         orElse: () => null,
         empty: () => "To do must not be empty",
       ),
       (data) => null,
+    );
+  }
+
+  String? get textErrorMsg {
+    return FormValidator.customValidator(validator: cannotAddTheSameText).fold(
+      (failure) => failure.maybeWhen(
+        orElse: () => null,
+        costumError: () => "cannot add the same value text",
+      ),
+      (_) => todoErrorMsg,
     );
   }
 
@@ -72,6 +84,12 @@ class ToDoEntity with _$ToDoEntity {
     final history = histories.firstWhere((element) => element.id == id);
 
     return history;
+  }
+
+  bool get cannotAddTheSameText {
+    final isRedundant = histories.any((element) => element.text == text);
+
+    return isRedundant;
   }
 
   factory ToDoEntity.fromJson(Map<String, dynamic> json) => _$ToDoEntityFromJson(json);
