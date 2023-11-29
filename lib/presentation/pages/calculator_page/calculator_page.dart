@@ -33,6 +33,7 @@ class CalculatorPage extends StatelessWidget {
                         substract: () => context.read<CalculatorCubit>().substractValue(),
                         multiply: () => context.read<CalculatorCubit>().multiplyValue(),
                         divide: () => context.read<CalculatorCubit>().divideValue(),
+                        pangkat: () => context.read<CalculatorCubit>().pangkatValue(),
                       );
                     },
                     child: const Text(
@@ -93,6 +94,13 @@ class CalculatorPage extends StatelessWidget {
                               context.read<CalculatorCubit>().chooseType(const CalculatorType.divide());
                             },
                           ),
+                          ChipCustom(
+                            isChoosen: state.choosenType(const CalculatorType.pangkat()),
+                            title: 'Pow',
+                            onTap: () {
+                              context.read<CalculatorCubit>().chooseType(const CalculatorType.pangkat());
+                            },
+                          ),
                         ],
                       ),
                       if (!state.typeNotChoosen)
@@ -100,6 +108,9 @@ class CalculatorPage extends StatelessWidget {
                           children: [
                             UIHelper.verticalSpace(20),
                             Row(
+                              crossAxisAlignment: state.choosenType(const CalculatorType.pangkat())
+                                  ? CrossAxisAlignment.start
+                                  : CrossAxisAlignment.center,
                               children: [
                                 SizedBox(
                                   width: UIHelper.setSp(60),
@@ -120,15 +131,16 @@ class CalculatorPage extends StatelessWidget {
                                   ),
                                   UIHelper.horizontalSpace(10),
                                 ],
-                                SizedBox(
-                                  width: UIHelper.setSp(60),
-                                  child: TextFormFieldCustom(
-                                    keyboardType: TextInputType.number,
-                                    controller: context.read<CalculatorCubit>().rightController,
-                                    textAlign: TextAlign.center,
-                                    style: context.textTheme.displayLarge,
+                                if (!state.choosenType(const CalculatorType.pangkat()))
+                                  SizedBox(
+                                    width: UIHelper.setSp(60),
+                                    child: TextFormFieldCustom(
+                                      keyboardType: TextInputType.number,
+                                      controller: context.read<CalculatorCubit>().rightController,
+                                      textAlign: TextAlign.center,
+                                      style: context.textTheme.displayLarge,
+                                    ),
                                   ),
-                                ),
                                 UIHelper.horizontalSpace(10),
                                 Text(
                                   '=',
@@ -159,10 +171,12 @@ class CalculatorPage extends StatelessWidget {
                                     color: state.showErrorMsg == null ? ColorConstant.green : ColorConstant.red,
                                   ),
                                   UIHelper.horizontalSpace(10),
-                                  Text(
-                                    state.showErrorMsg ?? 'Press calculate button to get the result',
-                                    style: context.textTheme.bodySmall?.copyWith(
-                                      color: state.showErrorMsg == null ? ColorConstant.grey : ColorConstant.red,
+                                  Expanded(
+                                    child: Text(
+                                      state.showErrorMsg ?? 'Press calculate button to get the result',
+                                      style: context.textTheme.bodySmall?.copyWith(
+                                        color: state.showErrorMsg == null ? ColorConstant.grey : ColorConstant.red,
+                                      ),
                                     ),
                                   )
                                 ],

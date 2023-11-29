@@ -45,6 +45,7 @@ class CalculatorState with _$CalculatorState {
       add: () => '+',
       substract: () => '-',
       multiply: () => 'x',
+      pangkat: () => '^',
     );
   }
 

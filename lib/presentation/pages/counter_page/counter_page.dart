@@ -17,40 +17,45 @@ class CounterPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => CounterCubit(),
       child: Builder(
-        builder: (context) => Scaffold(
-          appBar: PlatformAppBar(
-            title: const Text('Counter App'),
-            leading: IconButton(
-              onPressed: () {
-                AutoRouter.of(context).pop();
-              },
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
-            ),
-          ),
-          body: Center(
-            child: BlocBuilder<CounterCubit, int>(
-              builder: (context, state) {
-                return Text('$state', key: textCounter, style: context.textTheme.displayMedium);
-              },
-            ),
-          ),
-          floatingActionButton: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              FloatingActionButton(
-                key: fabIncrement,
-                child: const Icon(Icons.add),
-                onPressed: () => context.read<CounterCubit>().increment(),
+        builder: (context) => BlocBuilder<CounterCubit, CounterState>(
+          builder: (context, state) {
+            return Scaffold(
+              appBar: PlatformAppBar(
+                color: state.color,
+                title: const Text('Counter App'),
+                leading: IconButton(
+                  onPressed: () {
+                    AutoRouter.of(context).pop();
+                  },
+                  icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                ),
               ),
-              const SizedBox(height: 8),
-              FloatingActionButton(
-                key: fabDecrement,
-                child: const Icon(Icons.remove),
-                onPressed: () => context.read<CounterCubit>().decrement(),
+              body: Center(
+                child: Text(
+                  '${state.value}',
+                  key: textCounter,
+                  style: context.textTheme.displayMedium,
+                ),
               ),
-            ],
-          ),
+              floatingActionButton: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  FloatingActionButton(
+                    key: fabIncrement,
+                    child: const Icon(Icons.add),
+                    onPressed: () => context.read<CounterCubit>().increment(),
+                  ),
+                  const SizedBox(height: 8),
+                  FloatingActionButton(
+                    key: fabDecrement,
+                    child: const Icon(Icons.remove),
+                    onPressed: () => context.read<CounterCubit>().decrement(),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

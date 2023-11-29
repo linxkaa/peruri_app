@@ -36,6 +36,14 @@ class CalculatorCubit extends Cubit<CalculatorState> {
     emit(state.unmodified.copyWith.model(rightForm: val));
   }
 
+  void pangkatValue() {
+    if (state.model.failureOption.isNone()) {
+      saveToHistories(state.model.powMethod);
+    } else {
+      emit(state.unmodified.copyWith(showError: true));
+    }
+  }
+
   void addValue() {
     if (state.model.failureOption.isNone()) {
       saveToHistories(state.model.addMethod);

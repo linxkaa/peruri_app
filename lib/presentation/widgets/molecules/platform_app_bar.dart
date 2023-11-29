@@ -8,13 +8,14 @@ class PlatformAppBar extends PlatformWidget<CupertinoNavigationBar, AppBar> impl
   final Widget? leading;
   final PreferredSizeWidget? bottom;
   final double? elevation;
-
+  final Color? color;
   const PlatformAppBar({
     super.key,
     required this.title,
     this.leading,
     this.bottom,
     this.elevation,
+    this.color,
   });
 
   @override
@@ -32,5 +33,6 @@ class PlatformAppBar extends PlatformWidget<CupertinoNavigationBar, AppBar> impl
         leading: leading,
         bottom: bottom,
         elevation: elevation,
+        backgroundColor: color,
       );
 }

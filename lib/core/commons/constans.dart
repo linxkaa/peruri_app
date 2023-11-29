@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:peruri_app/core/commons/colors_const.dart';
+
 class Constants {
   static String apiKey = '3ZCzt0iAeIbP9bYnJLXWb4tYDE8cczTx';
   static String dummyImg =
@@ -14,5 +17,16 @@ class Constants {
     'fashion',
     'home',
     'business',
+  ];
+
+  static List<Color> chooseColor = [
+    ColorConstant.green,
+    ColorConstant.primary,
+    ColorConstant.purple,
+    ColorConstant.red,
+    ColorConstant.lightBlue,
+    Colors.cyanAccent,
+    Colors.deepPurpleAccent,
+    Colors.lightBlueAccent,
   ];
 }
