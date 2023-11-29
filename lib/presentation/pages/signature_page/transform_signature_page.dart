@@ -6,6 +6,7 @@ import 'package:flutter_box_transform/flutter_box_transform.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:peruri_app/core/routes/app_router.gr.dart';
 import 'package:peruri_app/presentation/widgets/molecules/platform_app_bar.dart';
+import 'package:peruri_app/presentation/widgets/organisms/ui_helper.dart';
 
 @RoutePage()
 class TransformSignaturePage extends StatefulWidget {
@@ -23,6 +24,18 @@ class _TransformSignaturePageState extends State<TransformSignaturePage> {
   );
   String _path = "";
   bool isChanged = false;
+
+  double topLeftDY = 0;
+  double topLeftDX = 0;
+
+  double topRightDY = 0;
+  double topRightDX = 0;
+
+  double bottomLeftDY = 0;
+  double bottomLeftDX = 0;
+
+  double bottomRightDY = 0;
+  double bottomRightDX = 0;
 
   Future<void> _addPictureToGallery() async {
     final picker = ImagePicker();
@@ -46,12 +59,38 @@ class _TransformSignaturePageState extends State<TransformSignaturePage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
+          Column(
+            children: [
+              Text('Top Left DY: $topLeftDY'),
+              Text('Top Left DX: $topLeftDX'),
+              UIHelper.verticalSpace(10),
+              Text('Top Right DY: $topRightDY'),
+              Text('Top Right DX: $topRightDX'),
+              UIHelper.verticalSpace(10),
+              Text('Bottom Left DY: $bottomLeftDY'),
+              Text('Bottom Left DX: $bottomLeftDX'),
+              UIHelper.verticalSpace(10),
+              Text('Bottom Right DY: $bottomRightDY'),
+              Text('Bottom Right DX: $bottomRightDX'),
+            ],
+          ),
           TransformableBox(
             rect: rect,
             clampingRect: Offset.zero & MediaQuery.of(context).size,
             onChanged: (result) {
               setState(() {
                 rect = result.rect;
+                topLeftDY = result.rect.topLeft.dy;
+                topLeftDX = result.rect.topLeft.dx;
+
+                topRightDY = result.rect.topRight.dy;
+                topRightDX = result.rect.topRight.dx;
+
+                bottomLeftDY = result.rect.bottomLeft.dy;
+                bottomLeftDX = result.rect.bottomLeft.dx;
+
+                bottomRightDY = result.rect.bottomRight.dy;
+                bottomRightDX = result.rect.bottomRight.dx;
               });
             },
             contentBuilder: (context, rect, flip) {
